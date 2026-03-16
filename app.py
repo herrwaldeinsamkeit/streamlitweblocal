@@ -258,9 +258,9 @@ See ? No need to load a `model.joblib` file in this app, we do not even need to 
 # else:
 #     st.write('teams name for home_club and away_club not submitted 😞')
 
-# '''
-also add a function to asign the 2 teams.predict  scores
-to generate a straightforward assertion for win even or lose
-and round the score to integer to give it a real feeling scores
+# # '''
+# also add a function to asign the 2 teams.predict  scores
+# to generate a straightforward assertion for win even or lose
+# and round the score to integer to give it a real feeling scores
 
-'''
+# '''
