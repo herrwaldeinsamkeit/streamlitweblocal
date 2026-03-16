@@ -148,117 +148,117 @@ See ? No need to load a `model.joblib` file in this app, we do not even need to 
 🤔 How could we call our API ? Off course... The `requests` package 💡
 '''
 
-#url = 'https://taxifare-1088852828414.europe-west1.run.app/predict'
-#url = 'https://taxifare.lewagon.ai/predict'
-##if url == 'https://taxifare.lewagon.ai/predict':
+# #url = 'https://taxifare-1088852828414.europe-west1.run.app/predict'
+# #url = 'https://taxifare.lewagon.ai/predict'
+# ##if url == 'https://taxifare.lewagon.ai/predict':
 
-#   st.markdown('Maybe you want to use your own API for the prediction, not the one provided by Le Wagon...')
+# #   st.markdown('Maybe you want to use your own API for the prediction, not the one provided by Le Wagon...')
 
-'''
+# '''
 
-2. Let's build a dictionary containing the parameters for our API...
+# 2. Let's build a dictionary containing the parameters for our API...
 
-##From club_game get home id ,away id.
-e.g. define a function from 2 names of teams to get ids.
+# ##From club_game get home id ,away id.
+# e.g. define a function from 2 names of teams to get ids.
 
-home_club_id, away_club_id =get_id(home_club_name:str='',away_club_name:str='')
+# home_club_id, away_club_id =get_id(home_club_name:str='',away_club_name:str='')
 
-##From processed_data got processed features
+# ##From processed_data got processed features
 
-e.g define a seconde function from 2 ids to select the preprocessed features
-
-
-
-faetures X =get_features(home_club_id, away_club_id)
-
-X= {:
-home_club_position;
-away_club_position;
-home_streak_2
-home_streak_5
-home_restday
-away_streak_2
-away_streak_5
-away_restday
-home_market_value
-away_market_value
-}
-3. Let's call our API using the `requests` package...
-
-4. Let's retrieve the prediction from the **JSON** returned by the API...
-
-## Finally, we can display the prediction to the user
-'''
-X=pd.DataFrame({
-'home_club_position':[16],
-'away_club_position':[86],
-'home_streak_2' :[3.0],
-'home_streak_5' : [3.0],
-'home_restday' :[6.0],
-'away_streak_2' : [0.0],
-'away_streak_5' : [0.0],
-'away_restday' :[5.0],
-'home_market_value' :[1.274111e+08],
-'away_market_value'  :[5.309333e+07]
-})
-
-# if st.checkbox('Show progress bar'):
-#     import time
-
-#     'Starting a long computation...'
-
-#     # Add a placeholder
-#     latest_iteration = st.empty()
-#     bar = st.progress(0)
-
-#     for i in range(100):
-#         # Update the progress bar with each iteration.
-#         latest_iteration.text(f'Iteration {i+1}')
-#         bar.progress(i + 1)
-#         time.sleep(0.1)
-
-#     '...and now we\'re done!'
-
-if st.button('submit for prediction'):
-    print('submit for teams for prediction!')
-    st.write('paramter submitted 🎉')
-
-    #parameter ={
-    #     'home_club_position': home_club_position,
-    #     'away_club_position': away_club_position,
-    #     'home_streak_2': home_streak_2,
-    #     'home_streak_5': home_streak_5,
-    #     'home_restday': home_restday,
-    #     'away_streak_2': away_streak_2,
-    #     'away_streak_5': away_streak_5,
-    #     'away_restday': away_restday,
-    #     'home_market_value': home_market_value,
-    #     'away_market_value': away_market_value
-    #     }
-    #response = requests.get(url, params=parameter)
-    #response.json()
-    #st.write('predict score for the 2 teams', response.json())
-
-    #prediction = model.predict(X)
-    st.title(f'{home_club_name} ⚽️vs {away_club_name}')
-    st.write('predict score for the 2 teams', prediction)
-    homescore =prediction[0][0]
-    awayscore =prediction[0][1]
-    diff = homescore -awayscore
-    if diff > 0.3:
-        st.write(f"{home_club_name} win!")
-    elif diff < -0.3:
-        st.write(f"{away_club_name} win")
-    else:
-        st.write("draw")
+# e.g define a seconde function from 2 ids to select the preprocessed features
 
 
-    st.write("Streamlit Map with pickup to dropout")
 
-else:
-    st.write('teams name for home_club and away_club not submitted 😞')
+# faetures X =get_features(home_club_id, away_club_id)
 
-'''
+# X= {:
+# home_club_position;
+# away_club_position;
+# home_streak_2
+# home_streak_5
+# home_restday
+# away_streak_2
+# away_streak_5
+# away_restday
+# home_market_value
+# away_market_value
+# }
+# 3. Let's call our API using the `requests` package...
+
+# 4. Let's retrieve the prediction from the **JSON** returned by the API...
+
+# ## Finally, we can display the prediction to the user
+# '''
+# X=pd.DataFrame({
+# 'home_club_position':[16],
+# 'away_club_position':[86],
+# 'home_streak_2' :[3.0],
+# 'home_streak_5' : [3.0],
+# 'home_restday' :[6.0],
+# 'away_streak_2' : [0.0],
+# 'away_streak_5' : [0.0],
+# 'away_restday' :[5.0],
+# 'home_market_value' :[1.274111e+08],
+# 'away_market_value'  :[5.309333e+07]
+# })
+
+# # if st.checkbox('Show progress bar'):
+# #     import time
+
+# #     'Starting a long computation...'
+
+# #     # Add a placeholder
+# #     latest_iteration = st.empty()
+# #     bar = st.progress(0)
+
+# #     for i in range(100):
+# #         # Update the progress bar with each iteration.
+# #         latest_iteration.text(f'Iteration {i+1}')
+# #         bar.progress(i + 1)
+# #         time.sleep(0.1)
+
+# #     '...and now we\'re done!'
+
+# if st.button('submit for prediction'):
+#     print('submit for teams for prediction!')
+#     st.write('paramter submitted 🎉')
+
+#     #parameter ={
+#     #     'home_club_position': home_club_position,
+#     #     'away_club_position': away_club_position,
+#     #     'home_streak_2': home_streak_2,
+#     #     'home_streak_5': home_streak_5,
+#     #     'home_restday': home_restday,
+#     #     'away_streak_2': away_streak_2,
+#     #     'away_streak_5': away_streak_5,
+#     #     'away_restday': away_restday,
+#     #     'home_market_value': home_market_value,
+#     #     'away_market_value': away_market_value
+#     #     }
+#     #response = requests.get(url, params=parameter)
+#     #response.json()
+#     #st.write('predict score for the 2 teams', response.json())
+
+#     #prediction = model.predict(X)
+#     st.title(f'{home_club_name} ⚽️vs {away_club_name}')
+#     st.write('predict score for the 2 teams', prediction)
+#     homescore =prediction[0][0]
+#     awayscore =prediction[0][1]
+#     diff = homescore -awayscore
+#     if diff > 0.3:
+#         st.write(f"{home_club_name} win!")
+#     elif diff < -0.3:
+#         st.write(f"{away_club_name} win")
+#     else:
+#         st.write("draw")
+
+
+#     st.write("Streamlit Map with pickup to dropout")
+
+# else:
+#     st.write('teams name for home_club and away_club not submitted 😞')
+
+# '''
 also add a function to asign the 2 teams.predict  scores
 to generate a straightforward assertion for win even or lose
 and round the score to integer to give it a real feeling scores
