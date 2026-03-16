@@ -4,6 +4,7 @@ import streamlit as st
 import joblib
 import requests
 import pandas as pd
+import tensorflow
 from datetime import date
 
 def load_base_data():
